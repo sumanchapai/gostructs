@@ -1,7 +1,6 @@
 package linkedlist
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -10,7 +9,6 @@ func TestEmptyLinkedList(t *testing.T) {
 	testSlice := []int{}
 	lst := LinkedListFromSlice(testSlice)
 	nilLst := LinkedList[int]{}
-	fmt.Println(nilLst, lst)
 	if lst != nilLst {
 		t.Fatalf("Not found empty linked list")
 	}
