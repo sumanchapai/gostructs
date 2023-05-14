@@ -13,14 +13,13 @@ func LinkedListFromSlice[T any](slice []T) LinkedList[T] {
 	var initial LinkedList[T]
 	var lastNode *node.Node[T]
 	for index, value := range slice {
-		newNode := node.Node[T]{Head: value}
+		newNode := node.Node[T]{Value: value}
 		if index == 0 {
 			initial.Head = &newNode
-			lastNode = &newNode
 		} else {
-			lastNode.Tail = &newNode
-			lastNode = &newNode
+			lastNode.Next = &newNode
 		}
+		lastNode = &newNode
 	}
 	return initial
 }
@@ -31,8 +30,8 @@ func SliceFromLinkedList[T any](lst LinkedList[T]) []T {
 	if !lst.IsEmpty() {
 		current := lst.Head
 		for i := 0; current != nil; i++ {
-			slice = append(slice, current.Head)
-			current = current.Tail
+			slice = append(slice, current.Value)
+			current = current.Next
 		}
 	}
 	return slice

@@ -1,6 +1,6 @@
 package node
 
 type Node[T any] struct {
-	Head T
-	Tail *Node[T]
+	Value T
+	Next  *Node[T]
 }

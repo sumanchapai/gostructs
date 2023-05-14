@@ -9,11 +9,11 @@ import (
 func TestTaillessNode(t *testing.T) {
 	headValue := 5
 	var tailValue *Node[int]
-	n := Node[int]{Head: headValue}
-	if n.Head != headValue {
+	n := Node[int]{Value: headValue}
+	if n.Value != headValue {
 		t.Fatalf("Invalid head value in node")
 	}
-	if n.Tail != tailValue {
+	if n.Next != tailValue {
 		t.Fatalf("Invalid tail value in node")
 	}
 }
@@ -24,15 +24,15 @@ func TestNode(t *testing.T) {
 	firstValue := 1
 	secondValue := 2
 	var tailValue *Node[int]
-	n := Node[int]{Head: firstValue}
-	n.Tail = &Node[int]{Head: secondValue}
-	if n.Head != firstValue {
+	n := Node[int]{Value: firstValue}
+	n.Next = &Node[int]{Value: secondValue}
+	if n.Value != firstValue {
 		t.Fatalf("Invalid first value in node")
 	}
-	if n.Tail.Head != secondValue {
+	if n.Next.Value != secondValue {
 		t.Fatalf("Invalid second value in node")
 	}
-	if n.Tail.Tail != tailValue {
+	if n.Next.Next != tailValue {
 		t.Fatalf("Invalid tail value in node")
 	}
 }

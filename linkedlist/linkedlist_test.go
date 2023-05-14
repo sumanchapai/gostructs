@@ -22,11 +22,11 @@ func TestLinkedList(t *testing.T) {
 	var i int
 	for i = 0; current != nil; i++ {
 		expected := testSlice[i]
-		found := current.Head
+		found := current.Value
 		if found != expected {
 			t.Fatalf("Expected %v at position %v. Found %v", expected, i, found)
 		}
-		current = current.Tail
+		current = current.Next
 	}
 	if i != len(testSlice) {
 		t.Fatalf("Expected size of list to be %v. Found %v", len(testSlice), i)
